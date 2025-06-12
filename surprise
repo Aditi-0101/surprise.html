@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>A Bouquet Just for You</title>
+  <style>
+    body {
+      background-color: #ecd4dc;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .container {
+        text-align: center;
+    }
+    h1 {
+      color: #0a0206;
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+    img {
+      width: 300px;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      animation: fadeIn 2s ease-in;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    p {
+      margin-top: 20px;
+      margin-bottom: 10px;
+      font-size: 18px;
+      color: #332929;
+    }
+    #musicBtn {
+      margin-top: 10px;
+      padding: 10px 15px;
+      background: #fff;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      color: #333;
+    }
+    .song-note {
+        font-weight: bold;
+        color: #000;
+        margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <audio id="bgMusic" loop>
+    <source src="song.mp3" type="audio/mpeg">
+  </audio>
+  <div class="container">
+    <h1>💐 A Bouquet for You 💐</h1>
+    <img src="rose.jpeg" alt="Bouquet of Flowers">
+    <p>Because you deserve something beautiful today.</p>
+    <p class="song-note">Here is a song for you💗</p>
+    <button id="musicBtn">Play Music 🎵</button>
+  </div>
+  <script>
+    const btn = document.getElementById("musicBtn");
+    const audio = document.getElementById("bgMusic");
+
+    btn.addEventListener("click", () => {
+      if (audio.paused) {
+        audio.play();
+        btn.innerText = "Pause Music ⏸️";
+      } else {
+        audio.pause();
+        btn.innerText = "Play Music 🎵";
+      }
+    });
+  </script>
+</body>
+</html>
